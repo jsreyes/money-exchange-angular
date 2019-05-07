@@ -1,0 +1,18 @@
+$header_footer_color: aquamarine;
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &__header {
+    background-color: $header_footer_color;
+    height: 20vh;
+  }
+  &__body {
+    background-color: white;
+    height: 60vh;
+  }
+  &__footer {
+    background-color: $header_footer_color;
+    height: 20vh;
+  }
+}
