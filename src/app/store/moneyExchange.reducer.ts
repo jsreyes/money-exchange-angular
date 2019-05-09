@@ -1,18 +1,33 @@
-import { Action } from '@ngrx/store';
-import { ActionTypes } from './moneyExchange.actions';
+import * as fromMoneyExchange from './moneyExchange.actions';
+export interface ExchangeState {
+  euro: number;
+  dollar: number;
+}
 
-export const initialState = 0;
+export const initialState: ExchangeState = {
+  euro: 0,
+  dollar: 0,
+};
 
-export function moneyExchangeReducer(state = initialState, action: Action) {
+export function ExchangeReducer(state = initialState, action: fromMoneyExchange.exchangeActions) {
   switch (action.type) {
-    case ActionTypes.GET_EXCHANGE:
-      return state + 1;
+    case fromMoneyExchange.GET_EXCHANGE:
+      return {
+        ...state,
+        euro: action.euro,
+      };
 
-    case ActionTypes.GET_EXCHANGE_SUCCESS:
-      return state - 1;
+    case fromMoneyExchange.GET_EXCHANGE_SUCCESS:
+      return {
+        ...state,
+        dollar: action.dollar,
+      };
 
-    case ActionTypes.GET_EXCHANGE_FAIL:
-      return 0;
+    case fromMoneyExchange.GET_EXCHANGE_FAIL:
+      return {
+        ...state,
+        dollar: undefined,
+      };
 
     default:
       return state;

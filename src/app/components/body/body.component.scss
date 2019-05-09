@@ -1,1 +1,7 @@
 @import '../../app.component.scss';
+.content-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

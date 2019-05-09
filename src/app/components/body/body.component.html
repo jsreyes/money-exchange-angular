@@ -1,3 +1,26 @@
 <div class="container__body">
-  Prueba Body
+  <form [formGroup]="exchangeForm" (ngSubmit)="exchangeOnSubmit(exchangeForm.value)">
+    <div class="content-inputs">
+      <mat-form-field floatLabel="never">
+        <input appearance="outline" id="input_euro" matInput placeholder="Ingrese la cantidad de euros a converitr" formControlName="euro">
+        <mat-error>
+          <span *ngIf="exchangeForm.get('euro').invalid && exchangeForm.get('euro').errors['required'] ">
+                Campo euros es <strong>requerido</strong>
+              </span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" color="accent">
+        <input id="input_show_dollar" matInput type="number" formControlName="dollar">
+        <mat-error>
+          <span *ngIf="exchangeForm.get('dollar').invalid && exchangeForm.get('dollar').errors['required']">
+                Campo dolares es <strong>requerido</strong>
+              </span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <button id="submit_exchange_form" mat-raised-button type="submit">CALCULATE</button>
+    </div>
+  </form>
 </div>
