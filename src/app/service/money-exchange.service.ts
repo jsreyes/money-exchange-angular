@@ -11,9 +11,9 @@ export class MoneyExchangeService {
 
   constructor(private http: HttpClient) { }
 
-  public getExchange(currency: string): Observable<any> {
+  public getExchange(): Observable<any> {
     console.log('Este es el currency que llega');
-    const url = environment.api.url + '&symbols=' + currency;
+    const url = environment.api.url;
     return new Observable((observer) => {
       this.http.get(url)
         .pipe(

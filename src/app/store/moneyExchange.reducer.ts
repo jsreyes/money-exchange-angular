@@ -20,7 +20,7 @@ export function ExchangeReducer(state = initialState, action: fromMoneyExchange.
     case fromMoneyExchange.GET_EXCHANGE_SUCCESS:
       return {
         ...state,
-        dollar: action.dollar,
+        dollar: action.dollar * action.euro,
       };
 
     case fromMoneyExchange.GET_EXCHANGE_FAIL:

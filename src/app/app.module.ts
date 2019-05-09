@@ -5,9 +5,9 @@ import { AppComponent } from './app.component';
 
 // NGRX
 import { Store, StoreModule } from '@ngrx/store';
-// import { EffectsModule } from '@ngrx/effects';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-// import { moneyExchangeEffects} from './store/moneyExchange.effects';
+import { MoneyExchangeEffects} from './store/moneyExchange.effects';
 import { ExchangeReducer } from './store/moneyExchange.reducer';
 
 
@@ -46,7 +46,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     HttpClientModule,
     StoreModule.forRoot({ exchange: ExchangeReducer}),
-    // EffectsModule.forRoot(moneyExchangeEffects),
+    EffectsModule.forRoot([MoneyExchangeEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
     ReactiveFormsModule,
     FormsModule,

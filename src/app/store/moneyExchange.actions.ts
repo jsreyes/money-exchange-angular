@@ -13,7 +13,7 @@ export class GetExchange implements Action {
 export class GetExchangeSuccess implements Action {
   public readonly type = GET_EXCHANGE_SUCCESS;
 
-  constructor(public dollar: number) {}
+  constructor(public euro: number, public dollar: number) {}
 }
 
 export class GetExchangeFail implements Action {
