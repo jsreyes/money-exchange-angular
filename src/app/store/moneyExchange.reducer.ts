@@ -5,8 +5,8 @@ export interface ExchangeState {
 }
 
 export const initialState: ExchangeState = {
-  euro: 0,
-  dollar: 0,
+  euro: undefined,
+  dollar: undefined,
 };
 
 export function ExchangeReducer(state = initialState, action: fromMoneyExchange.exchangeActions) {

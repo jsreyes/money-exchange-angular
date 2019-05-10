@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { map, switchMap, catchError } from 'rxjs/operators';
-// import { Message } from '../../models/message';
 import { Store } from '@ngrx/store';
 import { AppState } from './app.reducer';
 import { of } from 'rxjs';
@@ -20,7 +19,6 @@ public GetExchange$ = this.actions$
       return this.exchangeService.getExchange()
         .pipe(
           map((res: any) => {
-            console.log(res);
             return  new exchangeActions.GetExchangeSuccess(action['euro'], res['rates']['USD']);
           }),
           catchError((error) => {

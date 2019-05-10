@@ -15,7 +15,7 @@ import { ExchangeState } from '../../store/moneyExchange.reducer';
 export class BodyComponent implements OnInit {
   public exchangeForm: FormGroup;
   public euro: number = undefined;
-  public conversionToDollar = 0;
+  public conversionToDollar: number = undefined;
 
   private subscriptionToExchange: Subscription;
 
@@ -32,23 +32,26 @@ export class BodyComponent implements OnInit {
     this.subscriptionToExchange.unsubscribe();
   }
 
+  public subscribeToExchange() {
+    this.subscriptionToExchange = this.store.select('exchange').subscribe((exchangeState: ExchangeState) => {
+      if (exchangeState.dollar) {
+        this.conversionToDollar = exchangeState.dollar;
+      }
+      console.log(this.conversionToDollar, ' este es el valor end olares');
+    });
+  }
+
   public initForm() {
     this.exchangeForm = this.fb.group({
       euro: ['', Validators.compose([Validators.required])],
-      dollar: [{value: this.conversionToDollar, disabled: true}, Validators.compose([Validators.required])],
+      dollar: [{ value: this.conversionToDollar ? this.conversionToDollar : 0, disabled: true}, Validators.compose([Validators.required])],
     });
   }
 
   public exchangeOnSubmit(exchangeForm) {
-    console.log(exchangeForm, ' esto es lo que envia');
+    console.log(exchangeForm, ' este es el form que envia');
     const action = new exchangeActions.GetExchange(exchangeForm.euro);
     this.store.dispatch(action);
-  }
-
-  public subscribeToExchange() {
-    this.subscriptionToExchange = this.store.select('exchange').subscribe((exchangeState: ExchangeState) => {
-      this.conversionToDollar = exchangeState.dollar;
-    });
   }
 
 }
