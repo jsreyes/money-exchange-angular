@@ -19,6 +19,7 @@ $header_footer_color: aquamarine;
     height: 25vh;
   }
   &__footer {
+    display: flex;
     background-color: $header_footer_color;
     height: 30vh;
   }
