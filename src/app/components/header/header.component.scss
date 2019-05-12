@@ -1,1 +1,18 @@
 @import '../../app.component.scss';
+.image {
+  height: 120px;
+  margin: 30px;
+}
+
+.container-rectangles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 30%;
+  &__rectangle {
+    height: 20px;
+    width: 100px;
+    background-color: black;
+    border-radius: 5px;
+  }
+}

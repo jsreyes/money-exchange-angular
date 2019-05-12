@@ -2,7 +2,7 @@
   <form [formGroup]="exchangeForm" (ngSubmit)="exchangeOnSubmit(exchangeForm.value)">
     <div class="content-inputs">
       <mat-form-field floatLabel="never">
-        <input appearance="outline" id="input_euro" matInput placeholder="Ingrese la cantidad de euros a converitr" formControlName="euro" type="number">
+        <input appearance="fill" id="input_euro" matInput placeholder="Ingrese la cantidad de euros a converitr" formControlName="euro" type="number">
         <mat-error>
           <span *ngIf="exchangeForm.get('euro').invalid && exchangeForm.get('euro').errors['required'] ">
                 Campo euros es <strong>requerido</strong>

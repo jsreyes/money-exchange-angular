@@ -5,14 +5,21 @@ $header_footer_color: aquamarine;
   height: 100%;
   &__header {
     background-color: $header_footer_color;
-    height: 20vh;
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: white;
-    height: 60vh;
+    height: 25vh;
   }
   &__footer {
     background-color: $header_footer_color;
-    height: 20vh;
+    height: 30vh;
   }
 }
