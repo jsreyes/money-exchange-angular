@@ -1,0 +1,13 @@
+$breakpoint-sm: 767px;
+@mixin media($media) {
+  @if $media==all {
+    @media only screen and (min-width: 1px) {
+      @content;
+    }
+  }
+  @if $media==xs {
+    @media only screen and (max-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+}

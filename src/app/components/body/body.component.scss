@@ -1,7 +1,23 @@
 @import '../../app.component.scss';
-.content-inputs {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+@import '../../devices.scss';
+@include media(all) {
+  .content-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__button {
+      width: 30%;
+    }
+  }
+}
+
+@include media(xs) {
+  form {
+    width: 85%;
+  }
+  .content-button {
+    &__button {
+      width: 100%
+    }
+  }
 }

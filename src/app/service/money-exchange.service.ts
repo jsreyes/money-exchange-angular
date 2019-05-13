@@ -12,7 +12,6 @@ export class MoneyExchangeService {
   constructor(private http: HttpClient) { }
 
   public getExchange(): Observable<any> {
-    console.log('Este es el currency que llega');
     const url = environment.api.url;
     return new Observable((observer) => {
       this.http.get(url)
@@ -23,7 +22,6 @@ export class MoneyExchangeService {
           })
         )
         .subscribe((data) => {
-          console.log('Esta es la data');
           observer.next(data);
           observer.complete();
         });

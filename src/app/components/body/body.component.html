@@ -1,26 +1,21 @@
 <div class="container__body">
   <form [formGroup]="exchangeForm" (ngSubmit)="exchangeOnSubmit(exchangeForm.value)">
-    <div class="content-inputs">
-      <mat-form-field floatLabel="never">
-        <input appearance="fill" id="input_euro" matInput placeholder="Ingrese la cantidad de euros a converitr" formControlName="euro" type="number">
-        <mat-error>
-          <span *ngIf="exchangeForm.get('euro').invalid && exchangeForm.get('euro').errors['required'] ">
+    <mat-form-field appearance="outline" floatLabel="never">
+      <span matPrefix style="top: 0px;">€&nbsp;</span>
+      <input id="input_euro" matInput placeholder="Ingrese la cantidad de EU" formControlName="euro" type="text" (input)="formatEuroValue(exchangeForm.get('euro').value)">
+      <mat-error>
+        <span *ngIf="exchangeForm.get('euro').invalid && exchangeForm.get('euro').errors['required'] ">
                 Campo euros es <strong>requerido</strong>
               </span>
-        </mat-error>
-      </mat-form-field>
+      </mat-error>
+    </mat-form-field>
 
-      <mat-form-field floatLabel="never">
-        <input id="input_show_dollar" matInput type="number" formControlName="dollar" name="conversionToDollar" [(ngModel)]="conversionToDollar">
-        <mat-error>
-          <span *ngIf="exchangeForm.get('dollar').invalid && exchangeForm.get('dollar').errors['required']">
-                Campo dolares es <strong>requerido</strong>
-          </span>
-        </mat-error>
-      </mat-form-field>
-    </div>
-    <div>
-      <button id="submit_exchange_form" mat-raised-button type="submit" color="primary">CALCULATE</button>
+    <mat-form-field appearance="outline" floatLabel="never">
+      <input id="input_show_dollar" matInput type="text" formControlName="dollar" [(ngModel)]="conversionToDollar">
+      <span matPrefix style="top: 0px;">$&nbsp;</span>
+    </mat-form-field>
+    <div class="content-button">
+      <button id="submit_exchange_form" class="content-button__button" mat-raised-button type="submit" color="accent" [disabled]="exchangeForm.invalid">CALCULATE</button>
     </div>
   </form>
 </div>

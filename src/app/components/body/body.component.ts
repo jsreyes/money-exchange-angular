@@ -37,7 +37,6 @@ export class BodyComponent implements OnInit {
       if (exchangeState.dollar) {
         this.conversionToDollar = exchangeState.dollar;
       }
-      console.log(this.conversionToDollar, ' este es el valor end olares');
     });
   }
 
@@ -49,9 +48,23 @@ export class BodyComponent implements OnInit {
   }
 
   public exchangeOnSubmit(exchangeForm) {
-    console.log(exchangeForm, ' este es el form que envia');
-    const action = new exchangeActions.GetExchange(exchangeForm.euro);
+    const euroValue = exchangeForm.euro.replace(',', '');
+    const action = new exchangeActions.GetExchange(parseFloat(euroValue));
     this.store.dispatch(action);
+    setInterval(() => {
+      this.store.dispatch(action);
+    },  600000);
   }
 
+  public formatNumber(number) {
+    let value = number.toString().replace(/([^\d])+/g, '');
+    value = Math.abs(value)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return value;
+  }
+
+  public formatEuroValue(euro) {
+    this.exchangeForm.controls['euro'].setValue(this.formatNumber(euro));
+  }
 }

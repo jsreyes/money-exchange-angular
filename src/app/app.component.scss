@@ -1,26 +1,56 @@
+@import '../../src/app/devices.scss';
 $header_footer_color: aquamarine;
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  &__header {
-    background-color: $header_footer_color;
-    height: 45vh;
+@include media(all) {
+  .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 100%;
+    &__header {
+      background-color: $header_footer_color;
+      height: 45vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      height: 25vh;
+    }
+    &__footer {
+      display: flex;
+      background-color: $header_footer_color;
+      height: 30vh;
+    }
   }
-  &__body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    height: 25vh;
+  .mat-form-field {
+    width: 400px;
+    text-align: center;
+    margin: 0px 10px;
   }
-  &__footer {
-    display: flex;
-    background-color: $header_footer_color;
-    height: 30vh;
+  .mat-error span {
+    color: red;
+    font-size: 12px;
+  }
+}
+
+@include media(xs) {
+  .container {
+    &__header {
+      height: 50vh;
+    }
+    &__body {
+      height: 50vh;
+    }
+    &__footer {
+      height: 0vh;
+    }
+  }
+  .mat-form-field {
+    width: 100%;
   }
 }

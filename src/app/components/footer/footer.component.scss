@@ -1,21 +1,30 @@
 @import '../../app.component.scss';
-.container-sections {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0px 10%;
-  &__info {
-    width: 60%;
-    margin-right: 5%;
-    height: 150px;
-    &--container-images {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      img {
-        height: 50px;
+@import '../../devices.scss';
+@include media(all) {
+  .container-sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 10%;
+    &__info {
+      width: 60%;
+      margin-right: 5%;
+      height: 150px;
+      &--container-images {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        img {
+          height: 50px;
+        }
       }
     }
+  }
+}
+
+@include media(xs) {
+  .container-sections {
+    display: none;
   }
 }
