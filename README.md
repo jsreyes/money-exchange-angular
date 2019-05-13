@@ -1,6 +1,8 @@
-# MoneyExchangeAngular
+# Money Exchange Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+In this project you can money exchange between Euros to USD.
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8. and was created using ngrx.
 
 ## Development server
 
