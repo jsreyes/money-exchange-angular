@@ -7,12 +7,17 @@
 .container-rectangles {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 30%;
+  justify-content: space-evenly;
+  width: 100%;
   &__rectangle {
     height: 20px;
     width: 100px;
     background-color: black;
     border-radius: 5px;
   }
+}
+
+.prefix {
+  bottom: 10px;
+  top: 0px;
 }
